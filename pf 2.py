@@ -10,12 +10,15 @@ def update_score(Score):
 
 #reading score from file
 def max_score():
-    with open('scores.txt', 'r') as file:
+    try:
+        file = open('scores.txt', 'r')
         lines = file.readlines()
 #the whitespaces from the start and end of the string will be removed by strip method.
         score = lines[0].strip()
-
-    return score
+    except IOError:
+        print("file not found")
+    score = str(0)
+    return score 
 
 # this function draw the game window
 def draw_window(surface, grid, score=0, last_score = 0):
