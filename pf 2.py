@@ -1,7 +1,6 @@
 # update score in file
 def update_score(Score):
     score = max_score()
-
     with open('scores.txt', 'w') as file:
         if int(score) > Score:
             file.write(str(score))
